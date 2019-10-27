@@ -12,8 +12,8 @@
 
 	<mvc:annotation-driven /> <!-- added schema -->
 	
-	
-	<mvc:resources location="/WEB-INF/resources/" mapping="/resources/**"/> <!-- resource location need to know more -->
+	<!-- guiding where to find resources -->
+	<mvc:resources location="/WEB-INF/resources/" mapping="/resources/**"/> 
 
 <!-- view resolver -->
 	<bean
