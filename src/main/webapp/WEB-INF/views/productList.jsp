@@ -1,14 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<%@ page isELIgnored="false"%>
-<meta charset="ISO-8859-1">
-<title>ProductList</title>
-</head>
-<body>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-	<h2>The product object is {pl}</h2>
-</body>
-</html>
+<%@ include file="/WEB-INF/views/template/header.jsp"%>
+
+<div class="container-wrapper">
+
+	<div class="container">
+		<div class="page-header">
+
+			<h1>All products</h1>
+
+			<p>Check out all the products available</p>
+
+
+
+
+			<table class="table table-striped table-hover">
+				<thead>
+
+					<tr class="bg-info">
+
+						<th scope="col">Product Thumb</th>
+						<th scope="col">Product Name</th>
+						<th scope="col">Product Category</th>
+						<th scope="col">Product Condition</th>
+						<th scope="col">Product Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${pl}" var="pl">
+						<tr>
+							<th scope="row"><img src="#" alt="img" /></th>
+							<td>${pl.productName }</td>
+							<td>${pl.productCategory }</td>
+							<td>${pl.productCondition}</td>
+							<td>${pl.productPrice}USD</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+
+
+
+			<%@include file="/WEB-INF/views/template/footer.jsp"%>

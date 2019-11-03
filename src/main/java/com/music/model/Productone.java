@@ -16,9 +16,32 @@ public class Productone {
 
 	private String productManufacturer;
 
+	private String productDescription;
+
 	public Productone() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public Productone(String productName, String productCategory, int productPrice, String productCondition,
+			String productStatus, int unitsInStock, String productManufacturer, String productDescription) {
+		super();
+		this.productName = productName;
+		this.productCategory = productCategory;
+		this.productPrice = productPrice;
+		this.productCondition = productCondition;
+		this.productStatus = productStatus;
+		this.unitsInStock = unitsInStock;
+		this.productManufacturer = productManufacturer;
+		this.productDescription = productDescription;
+	}
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
 	}
 
 	public Productone(String productName, String productCategory, int productPrice, String productCondition,
@@ -93,7 +116,8 @@ public class Productone {
 	public String toString() {
 		return "Productone [productName=" + productName + ", productCategory=" + productCategory + ", productPrice="
 				+ productPrice + ", productCondition=" + productCondition + ", productStatus=" + productStatus
-				+ ", unitsInStock=" + unitsInStock + ", productManufacturer=" + productManufacturer + "]";
+				+ ", unitsInStock=" + unitsInStock + ", productManufacturer=" + productManufacturer
+				+ ", productDescription=" + productDescription + "]";
 	}
 
 }
