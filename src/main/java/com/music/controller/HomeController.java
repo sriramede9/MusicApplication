@@ -1,21 +1,28 @@
 package com.music.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.music.dao.ProductDao;
+import com.music.dao.ProductoneDao;
 import com.music.model.Productone;
 
 @Controller
 public class HomeController {
 
 	ProductDao pdao = new ProductDao();
+
+	@Autowired
+	ProductoneDao productoneDao;
 
 	// test-drive
 	@RequestMapping("/good")
@@ -32,8 +39,9 @@ public class HomeController {
 	@GetMapping("/productlist")
 	public String getProducts(Model model) {
 
-		List<Productone> productList = pdao.getProductList();
+		List<Productone> productList = productoneDao.getAllProducts();
 
+		
 		// Productone plone = productList.get(0);
 		model.addAttribute("pl", productList);
 
@@ -52,12 +60,14 @@ public class HomeController {
 
 		System.out.println(pone);
 
-		return "productList";
+		productoneDao.addProduct(pone);
+
+		return "redirect:productlist";
 	}
 
-	@GetMapping("/viewProduct")
-	public String viewProduct(Model model) {
-		model.addAttribute("product", pdao.getProductList().get(0));
+	@GetMapping("/viewProduct/{productId}")
+	public String viewProduct(@PathVariable int productId, Model model) throws IOException {
+		model.addAttribute("product", pdao.getProductById(productId));
 		return "view-product";
 	}
 
