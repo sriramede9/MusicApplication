@@ -16,6 +16,7 @@ public class ProductOneDaoImpl implements ProductoneDao {
 	@Autowired
 	HibernateTemplate hibernateTemplate;
 
+	@Transactional
 	public void addProduct(Productone pone) {
 		// TODO Auto-generated method stub
 		 hibernateTemplate.saveOrUpdate(pone);
@@ -23,17 +24,20 @@ public class ProductOneDaoImpl implements ProductoneDao {
 		System.out.println("added to the created database!" );
 	}
 
+	@Transactional
 	public Productone getProductById(int id) {
 		// TODO Auto-generated method stub
 		Productone pone = hibernateTemplate.load(Productone.class, id);
 		return pone;
 	}
 
+	@Transactional
 	public List<Productone> getAllProducts() {
 		// TODO Auto-generated method stub
 		return hibernateTemplate.loadAll(Productone.class);
 	}
 
+	@Transactional
 	public void deleteProductone(int id) {
 		// TODO Auto-generated method stub
 

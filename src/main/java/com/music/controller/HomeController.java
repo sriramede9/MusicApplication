@@ -41,7 +41,6 @@ public class HomeController {
 
 		List<Productone> productList = productoneDao.getAllProducts();
 
-		
 		// Productone plone = productList.get(0);
 		model.addAttribute("pl", productList);
 
@@ -67,7 +66,9 @@ public class HomeController {
 
 	@GetMapping("/viewProduct/{productId}")
 	public String viewProduct(@PathVariable int productId, Model model) throws IOException {
-		model.addAttribute("product", pdao.getProductById(productId));
+		Productone productById = productoneDao.getProductById(productId);
+		System.out.println(productById);
+		 model.addAttribute("product",productById );
 		return "view-product";
 	}
 

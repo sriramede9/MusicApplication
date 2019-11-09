@@ -23,14 +23,18 @@
 				<!-- information content -->
 				<div class="col-md-5">
 					<h1>${product.productName}</h1>
-					<p>${product.productDescription }</p>
+					<p>
+						<strong> ${product.productDescription } 
+					</p>
 					<p>
 						<strong> Manufacturer: </strong>${product.productManufacturer }</p>
 					<p>
 						<strong>Category: </strong>${product.productCategory}</p>
 					<p>
 						<strong>Condition: </strong>${product.productCondition}</p>
-					<p>${product.productPrice}Euro</p>
+					<p>
+						<strong> Price:${product.productPrice}USD
+					</p>
 
 				</div>
 
