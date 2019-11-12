@@ -21,7 +21,7 @@ public class ProductOneDaoImpl implements ProductoneDao {
 		// TODO Auto-generated method stub
 		 hibernateTemplate.saveOrUpdate(pone);
 
-		System.out.println("added to the created database!" );
+		System.out.println("added to the created database!");
 	}
 
 	@Transactional

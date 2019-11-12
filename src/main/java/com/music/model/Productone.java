@@ -1,9 +1,12 @@
 package com.music.model;
 
+import java.util.Arrays;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Productone {
@@ -27,6 +30,17 @@ public class Productone {
 	private String productManufacturer;
 
 	private String productDescription;
+
+	@Lob
+	private byte[] file;
+
+	public byte[] getFile() {
+		return file;
+	}
+
+	public void setFile(byte[] file) {
+		this.file = file;
+	}
 
 	public Productone() {
 		super();
@@ -132,10 +146,11 @@ public class Productone {
 
 	@Override
 	public String toString() {
-		return "Productone [productName=" + productName + ", productCategory=" + productCategory + ", productPrice="
-				+ productPrice + ", productCondition=" + productCondition + ", productStatus=" + productStatus
-				+ ", unitsInStock=" + unitsInStock + ", productManufacturer=" + productManufacturer
-				+ ", productDescription=" + productDescription + "]";
+		return "Productone [productId=" + productId + ", productName=" + productName + ", productCategory="
+				+ productCategory + ", productPrice=" + productPrice + ", productCondition=" + productCondition
+				+ ", productStatus=" + productStatus + ", unitsInStock=" + unitsInStock + ", productManufacturer="
+				+ productManufacturer + ", productDescription=" + productDescription + ", file=" + Arrays.toString(file)
+				+ "]";
 	}
 
 }
